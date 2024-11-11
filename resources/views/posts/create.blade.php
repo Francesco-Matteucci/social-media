@@ -2,7 +2,7 @@
 
 @section('form-route')
 
-{{route('post.store')}}
+{{route('posts.store')}}
 
 @endsection
 
