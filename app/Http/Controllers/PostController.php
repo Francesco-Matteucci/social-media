@@ -30,7 +30,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        /* TODO | to add fillable in Post model */
+        $post = Post::create($data);
+        return redirect()->route('post.show', $post->id);
     }
 
     /**
