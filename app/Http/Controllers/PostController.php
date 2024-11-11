@@ -30,11 +30,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+        /* TODO | to add store request resource */
+        $data = $request->validate([
+
+            /* TODO max validation rules */
+            'user_id'=> ['required','string', 'min:3'],
+            'category_id'=> ['required','string', 'min:3'],
+            'content'=> ['required','string', 'min:3'],
+        ]);
 
         /* TODO | to add fillable in Post model */
         $post = Post::create($data);
-        return redirect()->route('post.show', $post->id);
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
