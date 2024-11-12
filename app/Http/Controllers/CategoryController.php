@@ -32,7 +32,7 @@ class CategoryController extends Controller
     {
         $categoryData = $request->all();
         $category = Category::create($categoryData);
-        return redirect()->route("");
+        return redirect()->route('categories.show', $category->id);
     }
 
     /**
@@ -41,7 +41,8 @@ class CategoryController extends Controller
     public function show(string $id)
     {
         $category = Category::findOrFail($id);
-        return view('category.show', compact('category'));
+
+        return view('categories.show', compact('category'));
     }
 
     /**
