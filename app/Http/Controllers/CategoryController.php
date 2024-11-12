@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -19,7 +20,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category();
+        return view('categories.create', compact('category'));
     }
 
     /**
@@ -27,7 +29,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoryData = $request->all();
+        $category = Category::create($categoryData);
+        return redirect()->route("");
     }
 
     /**
