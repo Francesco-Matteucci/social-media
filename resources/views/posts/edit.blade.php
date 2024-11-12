@@ -2,7 +2,7 @@
 
 @section('form-route')
 
-{{route('posts.update')}}
+{{route('posts.update', $post->id)}}
 
 @endsection
 
