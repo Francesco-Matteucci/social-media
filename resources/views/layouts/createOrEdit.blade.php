@@ -12,12 +12,12 @@
 
         <!-- user id -->
         <div class="mb-2">
-            <label class="form-label" for="used-id">User</label>
-            <input class="form-control" type="text" name="used_id" id="used-id"
-                value="{{old('used_id',$post->used_id)}}">
+            <label class="form-label" for="user-id">User</label>
+            <input class="form-control" type="text" name="user_id" id="user-id"
+                value="{{old('user_id',$post->user_id)}}">
 
             <!-- error message -->
-            @error('used_id')
+            @error('user_id')
             <div class="alert alert-warning mt-2">{{$message}}</div>
             @enderror
         </div>
