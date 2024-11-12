@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
     {
         for ($i = 0; $i < 50; $i++) {
             $post = new Post();
-            $post->used_id = $faker->numberBetween(1, 10);
+            $post->user_id = $faker->numberBetween(1, 10);
             $post->category_id = $faker->numberBetween(1, 5);
             $post->content = $faker->text(500);
             $post->save();
