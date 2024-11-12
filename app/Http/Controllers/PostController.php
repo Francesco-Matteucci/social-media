@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRequest;
+use App\Http\Requests\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -28,17 +30,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
 
-        /* TODO | to add store request resource */
-        $data = $request->validate([
-
-            /* TODO max validation rules */
-            'user_id'=> ['required','string', 'min:3'],
-            'category_id'=> ['required','string', 'min:3'],
-            'content'=> ['required','string', 'min:3'],
-        ]);
+        $data = $request->validated();
 
         /* TODO | to add fillable in Post model */
         $post = Post::create($data);
@@ -62,15 +57,21 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        $data = $request->validated();
+
+        $post = Post::findOrFail($id);
+        $post->update($data);
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
