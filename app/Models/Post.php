@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'used_id',
+        'user_id',
         'category_id',
         'content',
     ];
