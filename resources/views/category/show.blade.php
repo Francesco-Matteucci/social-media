@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="fw-bold fst-italic text-decoration-underline">Post Show !!</h1>
+                <h1 class="fw-bold fst-italic text-decoration-underline my-5">Post Show !!</h1>
             </div>
         </div>
         <div class="col-12">
@@ -18,7 +18,7 @@
                     <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Elimina</button>
+                        <button type="submit" class="btn btn-sm btn-danger">Elimina</button>
                     </form>
                 </div>
             </div>
