@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Content</th>
+                    <th>Name</th>
                     <th>Functions</th>
                 </tr>
             </thead>
@@ -17,7 +17,7 @@
                 @forelse ($categories_list as $category)
                     <tr class="align-middle">
                         <td>{{ $category->id }}</td>
-                        <td>{{ $category->content }}</td>
+                        <td>{{ $category->name }}</td>
                         <td>
                             <a href="{{ route('categories.show', $category) }}" class="btn btn-success">Show</a>
                             <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning">Edit</a>
