@@ -13,6 +13,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Category</th>
                             <th>Content</th>
                         </tr>
                     </thead>
@@ -21,6 +22,7 @@
                             <td>
                                 {{ $post['id'] }}
                             </td>
+                            <td>{{ $post->category ? $post->category->name : 'Not Category' }}</td>
                             <td>
                                 {{ $post['content'] }}
                             </td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRequest;
 use App\Http\Requests\UpdateRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts_list = Post::all();
+        $posts_list = Post::with('category')->get();
         return view('posts.index', compact('posts_list'));
     }
 
@@ -24,7 +25,8 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('posts.create', compact('post'));
+        $categories = Category::all();
+        return view('posts.create', compact('post', 'categories'));
     }
 
     /**
@@ -58,7 +60,8 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     /**

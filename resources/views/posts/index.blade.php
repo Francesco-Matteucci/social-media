@@ -9,6 +9,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Categoria</th>
                     <th>Content</th>
                     <th>Functions</th>
                 </tr>
@@ -17,6 +18,7 @@
                 @forelse ($posts_list as $post)
                     <tr class="align-middle">
                         <td>{{ $post->id }}</td>
+                        <td>{{ $post->category ? $post->category->name : 'Not Category' }}</td>
                         <td>{{ $post->content }}</td>
                         <td>
                             <a href="{{ route('posts.show', $post) }}" class="btn btn-success">Show</a>
@@ -29,7 +31,9 @@
                         </td>
                     </tr>
                 @empty
-                    <div>Not Available</div>
+                <tr>
+                    <td colspan="4" class="text-center">Not Avalable</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>
